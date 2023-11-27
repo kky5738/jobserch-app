@@ -18,7 +18,7 @@ const Tabs = ({tabs, activeTab, setActiveTab}) => {
     return (
         <View style={styles.container}>
             <FlatList
-                data={["About", "Qulification"]}
+                data={tabs}
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item})=>(
