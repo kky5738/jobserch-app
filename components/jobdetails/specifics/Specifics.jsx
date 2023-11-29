@@ -1,14 +1,19 @@
 import React from "react"
 import { View, Text, Image } from "react-native"
-
 import styles from "./specifics.style"
-import {icons} from "../../../constants"
-import {checkImageURL} from "../../../utils"
 
-const Specifics = ({companyLogo, jotTitle, companyName, location}) => {
+const Specifics = ({title, points}) => {
     return (
-        <View>
-            <Text>Specifics Component</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>{title}</Text>
+            <View style={styles.pointsContainer}>
+                {points.map((item, index) => (
+                    <View style={styles.pointWrapper} key={item+index}>
+                        <View style={styles.pointDot}/>
+                        <Text style={styles.pointText}>{item}</Text>
+                    </View>
+                ))}
+            </View>
         </View>
     )
 }

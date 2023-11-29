@@ -1,14 +1,26 @@
 import React from "react"
-import { View, Text, Image } from "react-native"
+import { View, Text, Image, Pressable, TouchableOpacity, Linking } from "react-native"
 
 import styles from "./footer.style"
 import {icons} from "../../../constants"
-import {checkImageURL} from "../../../utils"
 
-const Footer = ({companyLogo, jotTitle, companyName, location}) => {
+const Footer = ({url}) => {
     return (
-        <View>
-            <Text>Footer Component</Text>
+        <View style={styles.container}>
+            <Pressable style={styles.likeBtn}>
+                <Image
+                    source={icons.heartOutline}
+                    resizeMode="contain"
+                    style={styles.likeBtnImage}
+                />
+            </Pressable>
+            <Pressable style={styles.applyBtn}
+                onPress={() => Linking.openURL(url)}
+            >
+                <Text style={styles.applyBtnText}>
+                    Apply for job
+                </Text>
+            </Pressable>
         </View>
     )
 }
